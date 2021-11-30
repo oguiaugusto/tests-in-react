@@ -12,10 +12,11 @@ describe('Testa componente About', () => {
   });
 
   it('A página contém dois parágrafos com texto sobre a pokédex', () => {
-    const paragraphs = screen.queryAllByTestId('about-paragraph');
-    expect(paragraphs).toHaveLength(2);
-    expect(paragraphs[0]).not.toBeEmptyDOMElement();
-    expect(paragraphs[1]).not.toBeEmptyDOMElement();
+    const firstParagraph = screen.getByText(/this application simulates/i);
+    const secondParagraph = screen.getByText(/one can filter pokémons by type, and see/i);
+
+    expect(firstParagraph).toBeDefined();
+    expect(secondParagraph).toBeDefined();
   });
 
   it('A página contém a imagem esperada de uma pokédex', () => {
