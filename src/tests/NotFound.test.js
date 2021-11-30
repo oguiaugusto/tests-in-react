@@ -13,10 +13,10 @@ describe('Testa componente NotFound', () => {
   });
 
   it('A página mostra a imagem esperada', () => {
-    const image = screen.getByTestId('not-found-image');
-    expect(image).toBeDefined();
+    const image = screen.queryAllByRole('img');
+    expect(image[1]).toBeDefined();
 
     const IMG_URL = 'https://media.giphy.com/media/kNSeTs31XBZ3G/giphy.gif';
-    expect(image.src).toBe(IMG_URL);
+    expect(image[1].src).toBe(IMG_URL);
   });
 });
