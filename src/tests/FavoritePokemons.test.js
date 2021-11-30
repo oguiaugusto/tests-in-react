@@ -63,7 +63,7 @@ describe('Testa componente Favorite Pokemons', () => {
       pokémons favoritos.`, () => {
     renderWithRouter(<FavoritePokemons pokemons={ [] } />);
     const noFavoriteText = screen.getByText(/no favorite pokemon found/i);
-    const favoritePokemons = screen.queryAllByTestId('favorite-pokemon');
+    const favoritePokemons = screen.queryAllByRole('link', { name: /more details/i });
 
     expect(noFavoriteText).toBeDefined();
     expect(favoritePokemons).toHaveLength(0);
@@ -74,7 +74,7 @@ describe('Testa componente Favorite Pokemons', () => {
     const noFavoriteText = screen.queryByText(/no favorite pokemon found/i);
     expect(noFavoriteText).toBeNull();
 
-    const favoritePokemons = screen.queryAllByTestId('favorite-pokemon');
+    const favoritePokemons = screen.queryAllByRole('link', { name: /more details/i });
     expect(favoritePokemons).toBeDefined();
     expect(favoritePokemons).toHaveLength(2);
   });
