@@ -69,7 +69,6 @@ class App extends Component {
   renderRoutes() {
     const { isPokemonFavoriteById } = this.state;
     const favoritePokemons = pokemons.filter(({ id }) => isPokemonFavoriteById[id]);
-    console.log(favoritePokemons);
 
     return (
       <Switch>
